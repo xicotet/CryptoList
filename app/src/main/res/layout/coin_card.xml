@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:id="@+id/card_view"
+    app:cardBackgroundColor="#DCD7D4"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/coin_logo"
+            android:contentDescription="@string/simbolo_de_la_moneda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/coin_icon" />
+
+        <TextView
+            android:id="@+id/coin_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/bitcoin"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/coin_logo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/coin_name_abbreviation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bitcoin_abbreviation"
+            android:textAllCaps="true"
+            android:textColor="@color/cobre"
+            android:fontFamily="sans-serif"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toLeftOf="@id/coin_name"
+            app:layout_constraintTop_toBottomOf="@id/coin_name" />
+
+        <TextView
+            android:id="@+id/current_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price_example"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="day_variation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/coin_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-2,05%"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/current_price"
+            app:layout_constraintStart_toStartOf="@+id/current_price"
+            app:layout_constraintTop_toBottomOf="@+id/current_price" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
