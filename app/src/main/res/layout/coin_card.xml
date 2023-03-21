@@ -52,15 +52,14 @@
             android:id="@+id/current_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/price_example"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif"
+            android:text="@string/price_example"
             android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="day_variation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/coin_name"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/coin_name" />
 
         <TextView
             android:id="@+id/daily_variation"
@@ -70,20 +69,20 @@
             android:textStyle="normal"
             android:fontFamily="sans-serif"
             android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="@+id/current_price"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/current_price"
             app:layout_constraintTop_toBottomOf="@+id/current_price" />
 
         <ImageView
-            android:id="@+id/variation_symbol"
+            android:id="@+id/daily_variation_symbol"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_margin="10dp"
+            android:contentDescription="@string/simbolo_variacion"
             app:layout_constraintEnd_toStartOf="@id/daily_variation"
+            app:layout_constraintStart_toStartOf="@+id/current_price"
             app:layout_constraintTop_toTopOf="@id/daily_variation"
-            app:layout_constraintBottom_toBottomOf="@id/daily_variation"
-            app:srcCompat="@drawable/increase"
-            android:contentDescription="@string/simbolo_variacion" />
+            app:srcCompat="@drawable/increase" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
