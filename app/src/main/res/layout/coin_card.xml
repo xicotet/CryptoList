@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -55,6 +54,7 @@
             android:layout_height="wrap_content"
             android:text="@string/price_example"
             android:textStyle="bold"
+            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="day_variation"
@@ -63,17 +63,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/daily_variation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-2,05%"
+            android:text="@string/variation_example"
             android:textStyle="normal"
             android:fontFamily="sans-serif"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/current_price"
             app:layout_constraintStart_toStartOf="@+id/current_price"
             app:layout_constraintTop_toBottomOf="@+id/current_price" />
+
+        <ImageView
+            android:id="@+id/variation_symbol"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toStartOf="@id/daily_variation"
+            app:layout_constraintTop_toTopOf="@id/daily_variation"
+            app:layout_constraintBottom_toBottomOf="@id/daily_variation"
+            app:srcCompat="@drawable/increase"
+            android:contentDescription="@string/simbolo_variacion" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

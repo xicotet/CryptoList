@@ -96,4 +96,6 @@
     <string name="bitcoin">Bitcoin</string>
     <string name="bitcoin_abbreviation">BTC</string>
     <string name="price_example">27.725,05€</string>
+    <string name="variation_example">2,05%</string>
+    <string name="simbolo_variacion">Simbolo de incremento/decremento</string>
 </resources>
