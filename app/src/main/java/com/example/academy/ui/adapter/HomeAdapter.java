@@ -12,9 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.academy.R;
 import com.example.academy.ui.data.CoinCard;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
