@@ -66,11 +66,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         holder.coinName.setText(coinCard.getName());
         holder.coinNameAbbreviation.setText(coinCard.getNameAbbreviation());
-        holder.currentPrice.setText(coinCard.getPrice());
-        holder.dailyVariation.setText(String.format("%s%%", coinCard.getVariation()));
+        holder.currentPrice.setText(String.format("%.2f%%", coinCard.getPrice()));
+        holder.dailyVariation.setText(String.format("%.2f%%", coinCard.getVariation()));
 
 
-        if(Double.parseDouble(coinCard.getVariation()) > 0)
+        if(coinCard.getVariation() > 0)
             holder.dailyVariationSymbol.setImageResource(R.drawable.increase);
         else
             holder.dailyVariationSymbol.setImageResource(R.drawable.decrease);

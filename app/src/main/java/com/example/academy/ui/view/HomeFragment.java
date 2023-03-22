@@ -6,18 +6,27 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.academy.R;
+import com.example.academy.data.network.CoinApiClient;
+import com.example.academy.data.network.CoinApiResponse;
 import com.example.academy.data.network.CoinApiService;
 import com.example.academy.ui.MainActivity;
 import com.example.academy.ui.adapter.HomeAdapter;
 import com.example.academy.data.model.CoinCard;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +38,7 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private CoinApiService coinApiService;
+    private CoinApiClient coinApiClient;
     private RecyclerView recyclerView;
     private HomeAdapter adapter;
 
@@ -72,6 +81,49 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }*/
+
+    }
+
+    private void fetchCoins() {
+        List<String> coinIds = Arrays.asList("bitcoin", "ethereum", "ripple", "binance-coin", "cardano", "solana", "polkadot", "dogecoin", "avalanche", "shiba-inu", "chainlink", "litecoin", "algorand", "uniswap", "matic");
+        Call<CoinApiResponse> call = coinApiClient.getCoins();
+
+        call.enqueue(new Callback<CoinApiResponse>() {
+            @Override
+            public void onResponse(Call<CoinApiResponse> call, Response<CoinApiResponse> response) {
+                if (response.isSuccessful()) {
+                    List<CoinApiResponse.CoinData> coinDataList = response.body().getData();
+
+                    // filter the coin data list to only include the 15 coins we want
+                    List<CoinApiResponse.CoinData> filteredCoinDataList = coinDataList.stream()
+                            .filter(coinData -> coinIds.contains(coinData.getId()))
+                            .collect(Collectors.toList());
+
+                    // create a list of CoinCards from the filtered coin data list
+                    List<CoinCard> coins = new ArrayList<>();
+                    for (CoinApiResponse.CoinData coinData : filteredCoinDataList) {
+                        CoinCard coinCard = new CoinCard(
+                                coinData.getName(),
+                                coinData.getSymbol(),
+                                Double.parseDouble(coinData.getPriceUsd()), //Hay que redondearlo primero
+                                Double.parseDouble(coinData.getChangePercent24Hr())
+                        );
+                        coins.add(coinCard);
+                    }
+
+                    // set up the RecyclerView adapter with the list of CoinCards
+                    adapter = new HomeAdapter(coins);
+                    recyclerView.setAdapter(adapter);
+                } else {
+                    Log.e("CoinAPI", "Error: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CoinApiResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
@@ -86,13 +138,14 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        List<CoinCard> coins = getCoins();
+        //List<CoinCard> coins = getCoins();
 
-        adapter = new HomeAdapter(coins);
-        recyclerView.setAdapter(adapter);
+        coinApiClient = CoinApiService.getClient(); // initialize CoinApiService
+        fetchCoins(); // fetch coins data
+
         return view;
     }
-
+/*
     private List<CoinCard> getCoins() {
         CoinCard bitcoin = new CoinCard(
                 "Bitcoin",
@@ -136,5 +189,5 @@ public class HomeFragment extends Fragment {
         coins.add(bnb);
         coins.add(steth);
         return coins;
-    }
+    }*/
 }

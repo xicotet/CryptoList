@@ -3,12 +3,12 @@ package com.example.academy.data.model;
 public class CoinCard {
     private String name;
     private String nameAbbreviation;
-    private String price;
-    private String variation;
+    private double price;
+    private double variation;
 
     private String url;
 
-    public CoinCard(String name, String nameAbbreviation, String price, String variation) {
+    public CoinCard(String name, String nameAbbreviation, double price, double variation) {
         this.name = name;
         this.nameAbbreviation = nameAbbreviation;
         this.price = price;
@@ -45,19 +45,19 @@ public class CoinCard {
         this.nameAbbreviation = nameAbbreviation;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getVariation() {
+    public double getVariation() {
         return variation;
     }
 
-    public void setVariation(String variation) {
+    public void setVariation(double variation) {
         this.variation = variation;
     }
 
