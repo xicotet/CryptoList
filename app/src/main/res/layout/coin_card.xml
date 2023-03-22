@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp">
 
         <ImageView
             android:id="@+id/coin_logo"
@@ -26,13 +27,15 @@
 
         <TextView
             android:id="@+id/coin_name"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="@string/bitcoin"
-            android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:textSize="30sp"
+            android:text="@string/bitcoin"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@+id/guideElements"
             app:layout_constraintStart_toEndOf="@+id/coin_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,14 +55,13 @@
             android:id="@+id/current_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:fontFamily="sans-serif"
             android:text="@string/price_example"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="day_variation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/coin_name"
-            app:layout_constraintBaseline_toBaselineOf="@+id/coin_name" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/coin_name"
+            app:layout_constraintStart_toStartOf="@+id/guideElements"/>
 
         <TextView
             android:id="@+id/daily_variation"
@@ -69,9 +71,8 @@
             android:textStyle="normal"
             android:fontFamily="sans-serif"
             android:textSize="25sp"
-            android:layout_margin="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/current_price"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintStart_toEndOf="@+id/daily_variation_symbol"
             app:layout_constraintTop_toBottomOf="@+id/current_price" />
 
         <ImageView
@@ -79,10 +80,16 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:contentDescription="@string/simbolo_variacion"
-            app:layout_constraintEnd_toStartOf="@id/daily_variation"
             app:layout_constraintStart_toStartOf="@+id/current_price"
             app:layout_constraintTop_toTopOf="@id/daily_variation"
             app:srcCompat="@drawable/increase" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideElements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="228dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
