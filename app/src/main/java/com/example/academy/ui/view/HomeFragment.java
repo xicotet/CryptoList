@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.academy.R;
+import com.example.academy.data.network.CoinApiService;
 import com.example.academy.ui.MainActivity;
 import com.example.academy.ui.adapter.HomeAdapter;
 import com.example.academy.data.model.CoinCard;
@@ -27,6 +28,8 @@ public class HomeFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private CoinApiService coinApiService;
     private RecyclerView recyclerView;
     private HomeAdapter adapter;
 
