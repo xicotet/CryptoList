@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -19,7 +20,8 @@
             android:contentDescription="@string/simbolo_de_la_moneda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginVertical="20dp"
+            android:paddingLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,15 +29,15 @@
 
         <TextView
             android:id="@+id/coin_name"
-            android:layout_width="120dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="10dp"
             android:fontFamily="sans-serif"
             android:text="@string/bitcoin"
-            android:textSize="27sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toStartOf="@+id/guideElements"
             app:layout_constraintStart_toEndOf="@+id/coin_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,13 +45,14 @@
             android:id="@+id/coin_name_abbreviation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
             android:text="@string/bitcoin_abbreviation"
             android:textAllCaps="true"
             android:textColor="@color/cobre"
-            android:fontFamily="sans-serif"
             android:textSize="25sp"
             app:layout_constraintLeft_toLeftOf="@id/coin_name"
-            app:layout_constraintTop_toBottomOf="@id/coin_name" />
+            app:layout_constraintTop_toBottomOf="@+id/coin_name" />
 
         <TextView
             android:id="@+id/current_price"
@@ -67,21 +70,21 @@
             android:id="@+id/daily_variation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/variation_example"
-            android:textStyle="normal"
-            android:fontFamily="sans-serif"
-            android:textSize="25sp"
             android:layout_marginLeft="10dp"
-            app:layout_constraintStart_toEndOf="@+id/daily_variation_symbol"
-            app:layout_constraintTop_toBottomOf="@+id/current_price" />
+            android:fontFamily="sans-serif"
+            android:text="@string/variation_example"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/coin_name_abbreviation"
+            app:layout_constraintStart_toEndOf="@+id/daily_variation_symbol" />
 
         <ImageView
             android:id="@+id/daily_variation_symbol"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:contentDescription="@string/simbolo_variacion"
+            app:layout_constraintBottom_toBottomOf="@+id/coin_name_abbreviation"
             app:layout_constraintStart_toStartOf="@+id/current_price"
-            app:layout_constraintTop_toTopOf="@id/daily_variation"
             app:srcCompat="@drawable/increase" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -89,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="228dp" />
+            app:layout_constraintGuide_begin="207dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

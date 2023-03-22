@@ -10,7 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.academy.R;
-import com.example.academy.ui.data.CoinCard;
+import com.example.academy.data.model.CoinCard;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -53,14 +54,21 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
-    @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CoinCard coinCard = coins.get(position);
+
+        Picasso.get().load(coinCard.getUrl())
+                .placeholder(R.drawable.currency)
+                .error(R.drawable.hourglass)
+                .resize(170, 0)
+                .centerCrop()
+                .into(holder.coinLogo);
 
         holder.coinName.setText(coinCard.getName());
         holder.coinNameAbbreviation.setText(coinCard.getNameAbbreviation());
         holder.currentPrice.setText(coinCard.getPrice());
-        holder.dailyVariation.setText(coinCard.getVariation() + "%");
+        holder.dailyVariation.setText(String.format("%s%%", coinCard.getVariation()));
+
 
         if(Double.parseDouble(coinCard.getVariation()) > 0)
             holder.dailyVariationSymbol.setImageResource(R.drawable.increase);

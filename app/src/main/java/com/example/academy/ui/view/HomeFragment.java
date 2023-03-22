@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.example.academy.R;
 import com.example.academy.ui.MainActivity;
 import com.example.academy.ui.adapter.HomeAdapter;
-import com.example.academy.ui.data.CoinCard;
+import com.example.academy.data.model.CoinCard;
 
 import java.util.ArrayList;
 import java.util.List;
