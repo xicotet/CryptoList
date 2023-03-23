@@ -15,7 +15,6 @@ import com.example.academy.R;
 import com.example.academy.data.network.CoinApiClient;
 import com.example.academy.data.network.CoinApiResponse;
 import com.example.academy.data.network.CoinApiService;
-import com.example.academy.ui.MainActivity;
 import com.example.academy.ui.adapter.HomeAdapter;
 import com.example.academy.data.model.CoinCard;
 

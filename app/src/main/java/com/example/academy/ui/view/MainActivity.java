@@ -1,4 +1,4 @@
-package com.example.academy.ui;
+package com.example.academy.ui.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

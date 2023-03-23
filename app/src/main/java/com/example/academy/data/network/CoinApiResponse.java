@@ -1,6 +1,5 @@
 package com.example.academy.data.network;
 
-import com.example.academy.data.model.Coin;
 
 import java.util.List;
 
