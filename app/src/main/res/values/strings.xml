@@ -98,4 +98,5 @@
     <string name="price_example">27.725,05€</string>
     <string name="variation_example">2,05%</string>
     <string name="simbolo_variacion">Simbolo de incremento/decremento</string>
+    <string name="fab_description">Boton para añadir una criptomoneda</string>
 </resources>

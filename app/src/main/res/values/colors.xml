@@ -8,4 +8,5 @@
     <color name="cobre">#464851</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="logo_color">#63C29E</color>
 </resources>
