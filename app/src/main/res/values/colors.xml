@@ -9,4 +9,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="logo_color">#63C29E</color>
+    <color name="logo_secondary_color">#6AC6EF</color>
 </resources>

@@ -100,4 +100,5 @@
     <string name="simbolo_variacion">Simbolo de incremento/decremento</string>
     <string name="fab_description">Boton para añadir una criptomoneda</string>
     <string name="volver_atras">Icono para volver atrás</string>
+    <string name="chip_trending">Trending</string>
 </resources>
