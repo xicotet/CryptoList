@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.SearchFragment">
 
+
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
@@ -42,68 +44,79 @@
     </com.google.android.material.appbar.MaterialToolbar>
 
     <HorizontalScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+        app:layout_constraintTop_toBottomOf="@id/materialToolbar"
+        android:scrollbars="none">
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
+            android:layout_height="wrap_content"
+
             android:layout_marginTop="8dp">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_trending"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:checkable="true"
+                android:layout_marginStart="16dp"
                 android:text="@string/chip_trending"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:chipBackgroundColor="@color/logo_secondary_color"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:chipBackgroundColor="@color/bg_chip_state_list"
                 app:chipCornerRadius="5dp"
-                app:chipEndPadding="14dp"
+                app:chipEndPadding="18dp"
                 app:chipIcon="@drawable/trending"
-                app:chipStartPadding="14dp"
+                app:chipStartPadding="18dp"
+                app:checkedIconEnabled="false"
+                app:chipIconSize="30dp"
                 app:chipStrokeColor="@color/black"
                 app:chipStrokeWidth="1dp" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_gainer"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:checkable="true"
-                android:text="Gainer"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:chipBackgroundColor="@color/logo_secondary_color"
+                android:text="@string/gainer"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:chipIconSize="30dp"
+                app:chipBackgroundColor="@color/bg_chip_state_list"
                 app:chipCornerRadius="5dp"
-                app:chipEndPadding="14dp"
+                app:chipStartPadding="18dp"
+                app:chipEndPadding="18dp"
                 app:chipIcon="@drawable/increase"
-                app:chipStartPadding="14dp"
+                app:checkedIconEnabled="false"
                 app:chipStrokeColor="@color/black"
                 app:chipStrokeWidth="1dp" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_loser"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:checkable="true"
-                android:text="Loser"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:chipBackgroundColor="@color/logo_secondary_color"
+                android:text="@string/loser"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginEnd="16dp"
+                app:chipBackgroundColor="@color/bg_chip_state_list"
                 app:chipCornerRadius="5dp"
-                app:chipEndPadding="14dp"
+                app:chipEndPadding="18dp"
                 app:chipIcon="@drawable/decrease"
-                app:chipStartPadding="14dp"
+                app:chipIconSize="30dp"
+                app:chipStartPadding="18dp"
+                app:checkedIconEnabled="false"
                 app:chipStrokeColor="@color/black"
                 app:chipStrokeWidth="1dp" />
 
         </com.google.android.material.chip.ChipGroup>
+
     </HorizontalScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

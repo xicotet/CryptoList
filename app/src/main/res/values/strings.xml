@@ -101,4 +101,6 @@
     <string name="fab_description">Boton para añadir una criptomoneda</string>
     <string name="volver_atras">Icono para volver atrás</string>
     <string name="chip_trending">Trending</string>
+    <string name="gainer">Gainer</string>
+    <string name="loser">Loser</string>
 </resources>
