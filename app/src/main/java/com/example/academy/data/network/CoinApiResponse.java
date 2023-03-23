@@ -28,7 +28,8 @@ public class CoinApiResponse {
             private String vwap24Hr;
             private String explorer;
 
-            public String getId() {
+
+        public String getId() {
                 return id;
             }
 

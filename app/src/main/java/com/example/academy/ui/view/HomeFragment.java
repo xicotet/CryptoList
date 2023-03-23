@@ -111,6 +111,8 @@ public class HomeFragment extends Fragment {
                     }
 
                     // set up the RecyclerView adapter with the list of CoinCards
+
+
                     adapter = new HomeAdapter(coins);
                     recyclerView.setAdapter(adapter);
                 } else {
