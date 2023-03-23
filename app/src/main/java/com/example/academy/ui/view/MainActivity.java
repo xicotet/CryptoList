@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, HomeFragment.newInstance())
+                    .replace(R.id.container, SearchFragment.newInstance())
                     .commitNow();
         }
     }

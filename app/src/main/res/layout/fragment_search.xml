@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.SearchFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentInsetStart="10dp"
+        android:background="@color/logo_color"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+
+        android:padding="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:backgroundTint="@color/logo_color"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/volver_atras"
+            android:src="@drawable/baseline_arrow_back_24"/>
+
+        <SearchView
+            android:id="@+id/search_coin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:closeIcon="@drawable/close"
+            android:background="@drawable/searchview_background"
+            android:queryHint="Moneda"
+            />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
