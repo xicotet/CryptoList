@@ -58,15 +58,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         CoinCard coinCard = coins.get(position);
 
         Picasso.get().load(coinCard.getUrl())
-                .placeholder(R.drawable.currency)
-                .error(R.drawable.hourglass)
+                .placeholder(R.drawable.hourglass)
+                .error(R.drawable.coin)
                 .resize(170, 0)
                 .centerCrop()
                 .into(holder.coinLogo);
 
         holder.coinName.setText(coinCard.getName());
         holder.coinNameAbbreviation.setText(coinCard.getNameAbbreviation());
-        holder.currentPrice.setText(String.format("%.2f%%", coinCard.getPrice()));
+        holder.currentPrice.setText(String.format("%.2f\u20AC", coinCard.getPrice()));
         holder.dailyVariation.setText(String.format("%.2f%%", coinCard.getVariation()));
 
 

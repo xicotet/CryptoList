@@ -41,12 +41,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private HomeAdapter adapter;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public HomeFragment() {
-        // Required empty public constructor
     }
 
     /**
@@ -146,49 +141,4 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
-/*
-    private List<CoinCard> getCoins() {
-        CoinCard bitcoin = new CoinCard(
-                "Bitcoin",
-                "BTC",
-                "26348.06€",
-                "0.72"
-        );
-
-        CoinCard ethereum = new CoinCard(
-                "Ethereum",
-                "ETH",
-                "1673.82€",
-                "3"
-        );
-
-        CoinCard tether = new CoinCard(
-                "Tether",
-                "USDT",
-                "0.93€",
-                "-0.06"
-        );
-
-        CoinCard bnb = new CoinCard(
-                "BNB",
-                "BNB",
-                "311.78€",
-                "0.42"
-        );
-
-        CoinCard steth = new CoinCard(
-                "Lido Staked ETH",
-                "Steth",
-                "1622.52€",
-                "-0.29"
-        );
-
-        List<CoinCard> coins = new ArrayList<>();
-        coins.add(bitcoin);
-        coins.add(ethereum);
-        coins.add(tether);
-        coins.add(bnb);
-        coins.add(steth);
-        return coins;
-    }*/
 }
