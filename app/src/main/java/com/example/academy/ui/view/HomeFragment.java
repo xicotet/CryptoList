@@ -70,6 +70,26 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = view.findViewById(R.id.recyclerView);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        //List<CoinCard> coins = getCoins();
+
+        coinApiClient = CoinApiService.getClient(); // initialize CoinApiService
+        fetchCoins(); // fetch coins data
+
+        return view;
+    }
+
     private void fetchCoins() {
         List<String> coinIds = Arrays.asList("bitcoin", "ethereum", "ripple", "binance-coin", "cardano", "solana", "polkadot", "dogecoin", "avalanche", "shiba-inu", "chainlink", "litecoin", "algorand", "uniswap", "matic");
         Call<CoinApiResponse> call = coinApiClient.getCoins();
@@ -80,12 +100,12 @@ public class HomeFragment extends Fragment {
                 if (response.isSuccessful()) {
                     List<CoinApiResponse.CoinData> coinDataList = response.body().getData();
 
-                    // filter the coin data list to only include the 15 coins we want
+                    // Filtrar la lista de monedas para incluir solamente las 15 que nosotros queremos
                     List<CoinApiResponse.CoinData> filteredCoinDataList = coinDataList.stream()
                             .filter(coinData -> coinIds.contains(coinData.getId()))
                             .collect(Collectors.toList());
 
-                    // create a list of CoinCards from the filtered coin data list
+                    // Crear una lista de CoinCard de la lista filtrada
                     List<CoinCard> coins = new ArrayList<>();
                     for (CoinApiResponse.CoinData coinData : filteredCoinDataList) {
                         CoinCard coinCard = new CoinCard(
@@ -112,25 +132,5 @@ public class HomeFragment extends Fragment {
 
             }
         });
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = view.findViewById(R.id.recyclerView);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        //List<CoinCard> coins = getCoins();
-
-        coinApiClient = CoinApiService.getClient(); // initialize CoinApiService
-        fetchCoins(); // fetch coins data
-
-        return view;
     }
 }

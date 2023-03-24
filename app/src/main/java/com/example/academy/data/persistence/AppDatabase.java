@@ -25,5 +25,5 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE; //Devolvemos la instancia de la conexion
     }
 
-    public abstract CoinCard getCoinDao();
+    public abstract CoinDao getCoinDao();
 }

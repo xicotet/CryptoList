@@ -11,10 +11,13 @@ import android.widget.SearchView;
 
 import com.example.academy.R;
 import com.example.academy.databinding.FragmentSearchBinding;
+import com.example.academy.ui.adapter.SearchAdapter;
 
 public class SearchFragment extends Fragment {
 
-    FragmentSearchBinding fragmentSearchBinding;
+    private FragmentSearchBinding fragmentSearchBinding;
+    private SearchAdapter searchAdapter;
+
     public SearchFragment() {
     }
 
@@ -36,6 +39,8 @@ public class SearchFragment extends Fragment {
         fragmentSearchBinding = FragmentSearchBinding.inflate(inflater, container, false);
         SearchView searchView = fragmentSearchBinding.searchView;
         searchView.requestFocus(); //Para que se abra el keyboard por defecto
+
+
         return fragmentSearchBinding.getRoot();
     }
 }
