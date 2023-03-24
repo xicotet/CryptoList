@@ -1,5 +1,6 @@
 package com.example.academy.data.model;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
@@ -9,11 +10,18 @@ public class CoinCard {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
+    @ColumnInfo(name = "coin_name")
     private String name;
+
+    @ColumnInfo(name = "coin_name_abbreviation")
     private String nameAbbreviation;
+
     private double price;
+
+    @ColumnInfo(name = "daily_variation")
     private double variation;
 
+    @ColumnInfo(name = "coin_symbol")
     private String symbolUrl;
 
     public CoinCard(){

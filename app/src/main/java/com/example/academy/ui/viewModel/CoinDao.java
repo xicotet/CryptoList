@@ -15,14 +15,31 @@ public interface CoinDao {
     @Query("SELECT * FROM CoinCard")
     LiveData<List<CoinCard>> getCoins();
 
+    @Query("SELECT coin_name, coin_name_abbreviation, coin_symbol " +
+            "FROM CoinCard")
+    LiveData<List<CoinCard>> getConciseCoins();
+
+    @Query("SELECT coin_name, coin_name_abbreviation, coin_symbol " +
+            "FROM CoinCard WHERE daily_variation > 0")
+    LiveData<List<CoinCard>> getGainerCoins();
+
+    @Query("SELECT coin_name, coin_name_abbreviation, coin_symbol " +
+            "FROM CoinCard WHERE daily_variation < 0")
+    LiveData<List<CoinCard>> getLoserCoins();
+
+
+    //Faltaria aqui filtrar por las 'Trending Coins'
+
+
     @Insert
     void addCoin(CoinCard coinCard);
 
     @Insert
     void addCoins(List<CoinCard> coinCard);
 
-   /* @Delete("DELETE  FROM CoinCard")
-    void deleteCoin(CoinCard coinCard);*/
+    @Delete
+    void deleteCoin(CoinCard coinCard);
+
 
 
 
