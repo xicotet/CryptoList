@@ -1,6 +1,14 @@
 package com.example.academy.data.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity
 public class CoinCard {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
     private String name;
     private String nameAbbreviation;
     private double price;
@@ -8,6 +16,9 @@ public class CoinCard {
 
     private String symbolUrl;
 
+    public CoinCard(){
+        //Constructor vacio necesario supuestamente para Room
+    }
     public CoinCard(String name, String nameAbbreviation, double price, double variation) {
         this.name = name;
         this.nameAbbreviation = nameAbbreviation;
@@ -65,4 +76,15 @@ public class CoinCard {
         this.variation = variation;
     }
 
+    @Override
+    public String toString() {
+        return "CoinCard{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", nameAbbreviation='" + nameAbbreviation + '\'' +
+                ", price=" + price +
+                ", variation=" + variation +
+                ", symbolUrl='" + symbolUrl + '\'' +
+                '}';
+    }
 }
