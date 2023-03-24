@@ -11,5 +11,6 @@
     <color name="logo_color">#63C29E</color>
     <color name="logo_secondary_color">#6AC6EF</color>
     <color name="chip_color">#DCD7D4</color>
-    <color name="background_card">#DCD7D4</color>
+    <color name="background_card">#DCD7D4</color>ç
+    <color name="background_search">#C4EA7A</color>
 </resources>
