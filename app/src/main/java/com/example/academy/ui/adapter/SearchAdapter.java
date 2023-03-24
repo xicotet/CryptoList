@@ -10,52 +10,48 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.academy.R;
-import com.example.academy.data.model.CoinCard;
+import com.example.academy.data.model.AbbreviatedCoinCard;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder>{
 
-    private static List<CoinCard> coins;
+    private static List<AbbreviatedCoinCard> coins;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         // Define click listener for the ViewHolder's View
         public ImageView coinLogo;
-        public ImageView dailyVariationSymbol;
         public TextView coinName;
         public TextView coinNameAbbreviation;
-        public TextView currentPrice;
-        public TextView dailyVariation;
+
+        public TextView isFavorite;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             coinLogo = itemView.findViewById(R.id.coinLogoConciseCard);
-            dailyVariationSymbol = itemView.findViewById(R.id.dailyVariationSymbol);
             coinName = itemView.findViewById(R.id.coinNameConciseCard);
             coinNameAbbreviation = itemView.findViewById(R.id.coinNameAbbreviationConciseCard);
-            currentPrice = itemView.findViewById(R.id.currentPrice);
-            dailyVariation = itemView.findViewById(R.id.dailyVariation);
-
+            isFavorite = itemView.findViewById(R.id.favorite);
         }
     }
 
-    public HomeAdapter(List<CoinCard> coins) {
+    public SearchAdapter(List<AbbreviatedCoinCard> coins) {
         this.coins = coins;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SearchAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.coin_card, parent, false);
+                .inflate(R.layout.abbreviated_coin_card, parent, false);
         //view.setVisivility(View.VISIBLE);
-        return new ViewHolder(view);
+        return new SearchAdapter.ViewHolder(view);
     }
 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CoinCard coinCard = coins.get(position);
+        AbbreviatedCoinCard coinCard = coins.get(position);
 
         Picasso.get().load(coinCard.getSymbolUrl())
                 .placeholder(R.drawable.hourglass)
@@ -66,13 +62,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         holder.coinName.setText(coinCard.getName());
         holder.coinNameAbbreviation.setText(coinCard.getNameAbbreviation());
-        holder.currentPrice.setText(String.format("%.2f\u20AC", coinCard.getPrice()));
-        holder.dailyVariation.setText(String.format("%.2f%%", coinCard.getVariation()));
-
-        if(coinCard.getVariation() > 0)
-            holder.dailyVariationSymbol.setImageResource(R.drawable.increase);
-        else
-            holder.dailyVariationSymbol.setImageResource(R.drawable.decrease);
         //holder.coinLogo.setImageResource();
     }
 
@@ -80,4 +69,5 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public int getItemCount() {
         return coins.size();
     }
+
 }

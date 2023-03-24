@@ -6,18 +6,22 @@ public class CoinCard {
     private double price;
     private double variation;
 
-    private String url;
+    private String symbolUrl;
 
     public CoinCard(String name, String nameAbbreviation, double price, double variation) {
         this.name = name;
         this.nameAbbreviation = nameAbbreviation;
         this.price = price;
         this.variation = variation;
-        this.url = generateURL(name, nameAbbreviation);
+        this.symbolUrl = generateURL(name, nameAbbreviation);
 
     }
 
-    private String generateURL(String coinName, String coinNameAbbreviation){
+    /* Following method returns an URL which, eventually, will be used to connect to an
+       API that serves crypto coins logos (since CoinCap API doesen't
+       supply that resource) and it will be rendered using Picasso.
+     */
+    public static String generateURL(String coinName, String coinNameAbbreviation){
         StringBuilder urlBuilder = new StringBuilder("https://cryptologos.cc/logos/");
         String path = coinName + " " + coinNameAbbreviation;
         path = path.replace(' ', '-').toLowerCase();
@@ -25,8 +29,8 @@ public class CoinCard {
         return urlBuilder.toString();
     }
 
-    public String getUrl(){
-        return url;
+    public String getSymbolUrl(){
+        return symbolUrl;
     }
 
     public String getName() {

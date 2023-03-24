@@ -1,0 +1,79 @@
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:id="@+id/card_view"
+    android:clickable="true"
+    app:cardBackgroundColor="#F4DACB"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="2dp">
+
+        <ImageView
+            android:id="@+id/coinLogoConciseCard"
+            android:contentDescription="@string/simbolo_de_la_moneda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginVertical="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/coin_icon" />
+
+        <TextView
+            android:id="@+id/coinNameConciseCard"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/bitcoin"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintStart_toEndOf="@+id/coinLogoConciseCard"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/coinNameAbbreviationConciseCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/bitcoin_abbreviation"
+            android:textAllCaps="true"
+            android:textColor="@color/cobre"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toLeftOf="@id/coinNameConciseCard"
+            app:layout_constraintTop_toBottomOf="@+id/coinNameConciseCard" />
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideElementsConciseCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="207dp" />
+
+        <ImageView
+            android:id="@+id/favorite"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideElementsConciseCard"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/favorite_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

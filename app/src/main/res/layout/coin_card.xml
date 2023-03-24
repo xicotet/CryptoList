@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:id="@+id/card_view"
-    app:cardBackgroundColor="#DCD7D4"
+    app:cardBackgroundColor="@color/background_card"
     app:cardCornerRadius="20dp"
     app:cardElevation="5dp">
 
@@ -16,19 +16,19 @@
         android:paddingVertical="10dp">
 
         <ImageView
-            android:id="@+id/coin_logo"
+            android:id="@+id/coinLogo"
             android:contentDescription="@string/simbolo_de_la_moneda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="20dp"
-            android:paddingLeft="10dp"
+            android:layout_marginLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/coin_icon" />
 
         <TextView
-            android:id="@+id/coin_name"
+            android:id="@+id/coinName"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
@@ -38,11 +38,11 @@
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constrainedWidth="true"
-            app:layout_constraintStart_toEndOf="@+id/coin_logo"
+            app:layout_constraintStart_toEndOf="@+id/coinLogo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/coin_name_abbreviation"
+            android:id="@+id/coinNameAbbreviation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -51,11 +51,11 @@
             android:textAllCaps="true"
             android:textColor="@color/cobre"
             android:textSize="25sp"
-            app:layout_constraintLeft_toLeftOf="@id/coin_name"
-            app:layout_constraintTop_toBottomOf="@+id/coin_name" />
+            app:layout_constraintLeft_toLeftOf="@id/coinName"
+            app:layout_constraintTop_toBottomOf="@+id/coinName" />
 
         <TextView
-            android:id="@+id/current_price"
+            android:id="@+id/currentPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -63,11 +63,11 @@
             android:text="@string/price_example"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/coin_name"
+            app:layout_constraintBaseline_toBaselineOf="@+id/coinName"
             app:layout_constraintStart_toStartOf="@+id/guideElements"/>
 
         <TextView
-            android:id="@+id/daily_variation"
+            android:id="@+id/dailyVariation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -75,16 +75,16 @@
             android:text="@string/variation_example"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/coin_name_abbreviation"
-            app:layout_constraintStart_toEndOf="@+id/daily_variation_symbol" />
+            app:layout_constraintBottom_toBottomOf="@+id/coinNameAbbreviation"
+            app:layout_constraintStart_toEndOf="@+id/dailyVariationSymbol" />
 
         <ImageView
-            android:id="@+id/daily_variation_symbol"
+            android:id="@+id/dailyVariationSymbol"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:contentDescription="@string/simbolo_variacion"
-            app:layout_constraintBottom_toBottomOf="@+id/coin_name_abbreviation"
-            app:layout_constraintStart_toStartOf="@+id/current_price"
+            app:layout_constraintBottom_toBottomOf="@+id/coinNameAbbreviation"
+            app:layout_constraintStart_toStartOf="@+id/currentPrice"
             app:srcCompat="@drawable/increase" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="207dp" />
+            app:layout_constraintGuide_begin="215dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
