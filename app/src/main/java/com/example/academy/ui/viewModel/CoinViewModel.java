@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.academy.data.model.CoinCard;
 import com.example.academy.data.network.CoinApiClient;
@@ -26,7 +27,7 @@ public class CoinViewModel extends AndroidViewModel {
     private final Application application;
     private final AppDatabase appDatabase;
     private final CoinDao cardDao;
-    private LiveData<List<CoinCard>> coinsLiveData;
+    private MutableLiveData<List<CoinCard>> coinsLiveData; //Si no fuera mutable no podemos hacer postValue()
 
     public CoinViewModel(Application application) {
         super(application);
@@ -38,6 +39,7 @@ public class CoinViewModel extends AndroidViewModel {
     public LiveData<List<CoinCard>> getCoins(){
         return cardDao.getCoins();
     }
+
 
     private void fetchCoins() {
         CoinApiClient coinApiClient = CoinApiService.getClient();
