@@ -13,4 +13,5 @@
     <color name="chip_color">#DCD7D4</color>
     <color name="background_card">#DCD7D4</color>ç
     <color name="background_search">#C4EA7A</color>
+    <color name="card_favorite">#F4DACB</color>
 </resources>

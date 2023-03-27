@@ -30,22 +30,32 @@ android {
     viewBinding {
         enabled = true
     }
-
 }
 
+
 dependencies {
+
+    dependencies {
+        constraints {
+            implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+                because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+            }
+            implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+                because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+            }
+        }
+    }
+
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
 
-    //runtimeOnly 'androidx.lifecycle:lifecycle-livedata:2.6.1'
-    //runtimeOnly 'androidx.lifecycle:lifecycle-viewmodel:2.6.1'
-runtimeOnly 'androidx.room:room-runtime:2.5.0'
-
-    implementation 'android.arch.persistence.room:runtime:1.1.1'
-    implementation 'android.arch.lifecycle:viewmodel:1.1.1'
-   implementation 'android.arch.lifecycle:livedata:1.1.1'
-
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.6.1"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:2.6.1"
+    //Room
+    implementation "androidx.room:room-runtime:2.5.1"
+    annotationProcessor "androidx.room:room-compiler:2.5.1"
 
 
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

@@ -46,6 +46,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         this.coins = coins;
     }
 
+    public void setData(List<CoinCard> coins){
+        this.coins = coins;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -57,9 +62,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CoinCard coinCard = coins.get(position);
-        if (holder.coinName == null) {
-            Log.i("nulo", "holder es nulo");
-        }
+
         Picasso.get().load(coinCard.getSymbolUrl())
                 .placeholder(R.drawable.hourglass)
                 .error(R.drawable.coin)

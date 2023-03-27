@@ -5,7 +5,6 @@ import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import com.example.academy.data.model.CoinCard;
 import com.example.academy.data.network.CoinApiClient;
@@ -17,6 +16,8 @@ import com.example.academy.data.persistence.CoinDao;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 import retrofit2.Call;
@@ -26,22 +27,28 @@ import retrofit2.Response;
 public class CoinViewModel extends AndroidViewModel {
     private final Application application;
     private final AppDatabase appDatabase;
-    private final CoinDao cardDao;
-    private MutableLiveData<List<CoinCard>> coinsLiveData; //Si no fuera mutable no podemos hacer postValue()
+    private final CoinDao coinDao;
+    private List<CoinCard> coinCards;
+    //private MutableLiveData<List<CoinCard>> coinsLiveData; //Si no fuera mutable no podemos hacer postValue()
 
     public CoinViewModel(Application application) {
         super(application);
         this.application = application;
         this.appDatabase = AppDatabase.getDatabase(this.getApplication());
-        this.cardDao = appDatabase.getCoinDao();
+        this.coinDao = appDatabase.getCoinDao();
+        coinCards = new ArrayList<>();
+        //coinsLiveData = new MutableLiveData<List<CoinCard>>();
     }
 
     public LiveData<List<CoinCard>> getCoins(){
-        return cardDao.getCoins();
+        return coinDao.getCoins();
     }
 
+    public void fetchCoins() {
+        fetchCoinsFromApi();
+    }
 
-    private void fetchCoins() {
+    private void fetchCoinsFromApi() {
         CoinApiClient coinApiClient = CoinApiService.getClient();
         List<String> coinIds = Arrays.asList("bitcoin", "ethereum", "ripple", "binance-coin", "cardano", "solana", "polkadot", "dogecoin", "avalanche", "shiba-inu", "chainlink", "litecoin", "algorand", "uniswap", "matic");
         Call<CoinApiResponse> call = coinApiClient.getCoins();
@@ -58,7 +65,7 @@ public class CoinViewModel extends AndroidViewModel {
                             .collect(Collectors.toList());
 
                     // Crear una lista de CoinCard de la lista filtrada
-                    List<CoinCard> coins = new ArrayList<>();
+                    List<CoinCard> coinCards = new ArrayList<>();
                     for (CoinApiResponse.CoinData coinData : filteredCoinDataList) {
                         CoinCard coinCard = new CoinCard(
                                 coinData.getName(),
@@ -66,10 +73,10 @@ public class CoinViewModel extends AndroidViewModel {
                                 Double.parseDouble(coinData.getPriceUsd()), //Hay que redondearlo primero
                                 Double.parseDouble(coinData.getChangePercent24Hr())
                         );
-                        coins.add(coinCard);
+                        coinCards.add(coinCard);
                     }
 
-                    coinsLiveData.postValue(coins);
+                    updateCoinsInDatabase(coinCards);
                 } else {
                     Log.e("CoinAPI", "Error: " + response.message());
                 }
@@ -81,6 +88,23 @@ public class CoinViewModel extends AndroidViewModel {
             }
         });
     }
+
+    private void updateCoinsInDatabase(List<CoinCard> coinCards) {
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            coinDao.deleteAllCoins();
+            coinDao.addCoins(coinCards);
+        });
+    }
+
+    public void deleteCoin(CoinCard coinCard) {
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> coinDao.deleteCoin(coinCard));
+    }
+
+
+
+
     //Parte de refresh va aqui
 
 

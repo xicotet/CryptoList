@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:id="@+id/card_view"
+    android:id="@+id/abbreviated_card_view"
     android:clickable="true"
     android:focusable="true"
-    app:cardBackgroundColor="#F4DACB"
+    app:cardBackgroundColor="@color/card_favorite"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp">
 

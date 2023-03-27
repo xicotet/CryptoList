@@ -1,5 +1,7 @@
 package com.example.academy.data.model;
 
+
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -26,17 +28,22 @@ public class CoinCard implements Serializable {
     @ColumnInfo(name = "coin_symbol")
     private String symbolUrl;
 
+    private boolean isFavorite;
+
     public CoinCard(){
         //Constructor vacio necesario supuestamente para Room
     }
+
     public CoinCard(String name, String nameAbbreviation, double price, double variation) {
         this.name = name;
         this.nameAbbreviation = nameAbbreviation;
         this.price = price;
         this.variation = variation;
         this.symbolUrl = generateURL(name, nameAbbreviation);
+        this.isFavorite = true;
 
     }
+
 
     /* Following method returns an URL which, eventually, will be used to connect to an
        API that serves crypto coins logos (since CoinCap API doesen't
@@ -48,6 +55,19 @@ public class CoinCard implements Serializable {
         path = path.replace(' ', '-').toLowerCase();
         urlBuilder.append(path).append("-logo.png?v=024");
         return urlBuilder.toString();
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSymbolUrl(String symbolUrl) {
+        this.symbolUrl = symbolUrl;
     }
 
     public String getSymbolUrl(){
@@ -84,6 +104,14 @@ public class CoinCard implements Serializable {
 
     public void setVariation(double variation) {
         this.variation = variation;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 
     @Override
