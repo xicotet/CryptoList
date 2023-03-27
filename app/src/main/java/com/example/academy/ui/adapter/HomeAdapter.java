@@ -1,5 +1,6 @@
 package com.example.academy.ui.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,10 +32,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            coinLogo = itemView.findViewById(R.id.coinLogoConciseCard);
+            coinLogo = itemView.findViewById(R.id.coinLogo);
             dailyVariationSymbol = itemView.findViewById(R.id.dailyVariationSymbol);
-            coinName = itemView.findViewById(R.id.coinNameConciseCard);
-            coinNameAbbreviation = itemView.findViewById(R.id.coinNameAbbreviationConciseCard);
+            coinName = itemView.findViewById(R.id.coinName);
+            coinNameAbbreviation = itemView.findViewById(R.id.coinNameAbbreviation);
             currentPrice = itemView.findViewById(R.id.currentPrice);
             dailyVariation = itemView.findViewById(R.id.dailyVariation);
 
@@ -56,7 +57,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CoinCard coinCard = coins.get(position);
-
+        if (holder.coinName == null) {
+            Log.i("nulo", "holder es nulo");
+        }
         Picasso.get().load(coinCard.getSymbolUrl())
                 .placeholder(R.drawable.hourglass)
                 .error(R.drawable.coin)

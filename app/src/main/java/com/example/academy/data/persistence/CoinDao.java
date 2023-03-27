@@ -1,10 +1,10 @@
 package com.example.academy.data.persistence;
 
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.Query;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
 
 import com.example.academy.data.model.CoinCard;
 

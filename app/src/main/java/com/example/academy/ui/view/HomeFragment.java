@@ -34,6 +34,7 @@ import retrofit2.Response;
  */
 public class HomeFragment extends Fragment {
 
+    //Borrar esto luego
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -44,7 +45,6 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
     }
 
-    // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
