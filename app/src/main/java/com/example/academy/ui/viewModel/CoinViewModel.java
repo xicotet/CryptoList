@@ -50,6 +50,7 @@ public class CoinViewModel extends AndroidViewModel {
 
     private void fetchCoinsFromApi() {
         CoinApiClient coinApiClient = CoinApiService.getClient();
+        //"chainlink", "cosmos", "monero"
         List<String> coinIds = Arrays.asList("bitcoin", "ethereum", "ripple", "binance-coin", "cardano", "solana", "polkadot", "dogecoin", "avalanche", "shiba-inu", "chainlink", "litecoin", "algorand", "uniswap", "matic");
         Call<CoinApiResponse> call = coinApiClient.getCoins();
 

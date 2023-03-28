@@ -88,13 +88,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.coinName.setText(coinCard.getName());
         holder.coinNameAbbreviation.setText(coinCard.getNameAbbreviation());
 
-       /* holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //int adapterPosition = holder.getBindingAdapterPosition();
                 listener.onItemClick(position);
-                holder.cardView.setBackgroundColor(Color.WHITE);
+                coinCard.setFavorite(false);
             }
-        });*/
+        });
         //holder.coinLogo.setImageResource();
     }
 
