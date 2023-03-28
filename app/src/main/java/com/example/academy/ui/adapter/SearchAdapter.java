@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.academy.R;
@@ -23,6 +24,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     private static List<CoinCard> coins;
     private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -69,6 +78,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         if(!coinCard.isFavorite()){
             holder.cardView.setBackgroundColor(Color.WHITE);
             holder.isFavorite.setImageResource(R.drawable.unfavorite_24);
+        } else {
+            holder.cardView.setBackgroundResource(R.color.card_favorite);
+            holder.isFavorite.setImageResource(R.drawable.favorite_24);
         }
 
         Picasso.get().load(coinCard.getSymbolUrl())
@@ -84,7 +96,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClick(position);
+                //listener.onItemClick(position);
+                listener.onItemClick(holder.getBindingAdapterPosition());
             }
         });
 
@@ -97,19 +110,11 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         return coins.size();
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
-
     public void setItemSelected(int position) {
         CoinCard coinCard = coins.get(position);
 
-        //!coinCard.isFavorite() es para cambiar el favorito. Si estaba a 'false' pasa a 'true'
-        coinCard.setFavorite(!coinCard.isFavorite());
+        Boolean selected = coinCard.isFavorite();
+        coinCard.setFavorite(!selected);
 
         notifyItemChanged(position);
     }
