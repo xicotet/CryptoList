@@ -1,6 +1,7 @@
 package com.example.academy.ui.adapter;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +23,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     private static List<CoinCard> coins;
     private OnItemClickListener listener;
-
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -75,6 +68,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         if(!coinCard.isFavorite()){
             holder.cardView.setBackgroundColor(Color.WHITE);
+            holder.isFavorite.setImageResource(R.drawable.unfavorite_24);
         }
 
         Picasso.get().load(coinCard.getSymbolUrl())
@@ -90,17 +84,34 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //int adapterPosition = holder.getBindingAdapterPosition();
                 listener.onItemClick(position);
-                coinCard.setFavorite(false);
             }
         });
+
+
         //holder.coinLogo.setImageResource();
     }
 
     @Override
     public int getItemCount() {
         return coins.size();
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public void setItemSelected(int position) {
+        CoinCard coinCard = coins.get(position);
+
+        //!coinCard.isFavorite() es para cambiar el favorito. Si estaba a 'false' pasa a 'true'
+        coinCard.setFavorite(!coinCard.isFavorite());
+
+        notifyItemChanged(position);
     }
 
 }

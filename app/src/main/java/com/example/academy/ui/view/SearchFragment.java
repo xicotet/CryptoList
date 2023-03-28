@@ -87,6 +87,13 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        searchAdapter.setOnItemClickListener(new SearchAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                searchAdapter.setItemSelected(position);
+            }
+        });
+
         return fragmentSearchBinding.getRoot();
     }
 }
