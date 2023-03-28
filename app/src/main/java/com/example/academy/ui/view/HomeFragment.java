@@ -34,16 +34,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class HomeFragment extends Fragment {
 
-    //Borrar esto luego
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class HomeFragment extends Fragment {
 
     private CoinApiClient coinApiClient;
     private RecyclerView recyclerView;
@@ -52,15 +44,6 @@ public class HomeFragment extends Fragment {
     private FloatingActionButton fab;
 
     public HomeFragment() {
-    }
-
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     public static Fragment newInstance() {
@@ -76,7 +59,6 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }*/
-
     }
 
     @Override
@@ -101,7 +83,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(List<CoinCard> coins) {
                 adapter.setData(coins);
-
                 //coinViewModel.deleteCoin("bitcoin");
             }
         });
@@ -117,55 +98,7 @@ public class HomeFragment extends Fragment {
                         .commit();
             }
         });
-        //coinApiClient = CoinApiService.getClient(); // initialize CoinApiService
-        //fetchCoins(); // fetch coins data
 
         return view;
-    }
-
-
-
-    private void fetchCoins() {
-        List<String> coinIds = Arrays.asList("bitcoin", "ethereum", "ripple", "binance-coin", "cardano", "solana", "polkadot", "dogecoin", "avalanche", "shiba-inu", "chainlink", "litecoin", "algorand", "uniswap", "matic");
-        Call<CoinApiResponse> call = coinApiClient.getCoins();
-
-        call.enqueue(new Callback<CoinApiResponse>() {
-            @Override
-            public void onResponse(Call<CoinApiResponse> call, Response<CoinApiResponse> response) {
-                if (response.isSuccessful()) {
-                    List<CoinApiResponse.CoinData> coinDataList = response.body().getData();
-
-                    // Filtrar la lista de monedas para incluir solamente las 15 que nosotros queremos
-                    List<CoinApiResponse.CoinData> filteredCoinDataList = coinDataList.stream()
-                            .filter(coinData -> coinIds.contains(coinData.getId()))
-                            .collect(Collectors.toList());
-
-                    // Crear una lista de CoinCard de la lista filtrada
-                    List<CoinCard> coins = new ArrayList<>();
-                    for (CoinApiResponse.CoinData coinData : filteredCoinDataList) {
-                        CoinCard coinCard = new CoinCard(
-                                coinData.getName(),
-                                coinData.getSymbol(),
-                                Double.parseDouble(coinData.getPriceUsd()), //Hay que redondearlo primero
-                                Double.parseDouble(coinData.getChangePercent24Hr())
-                        );
-                        coins.add(coinCard);
-                    }
-
-                    // set up the RecyclerView adapter with the list of CoinCards
-
-
-                    adapter = new HomeAdapter(coins);
-                    recyclerView.setAdapter(adapter);
-                } else {
-                    Log.e("CoinAPI", "Error: " + response.message());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CoinApiResponse> call, Throwable t) {
-
-            }
-        });
     }
 }

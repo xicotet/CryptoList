@@ -18,7 +18,17 @@ public interface CoinDao {
     @Query("SELECT * FROM CoinCard")
     LiveData<List<CoinCard>> getCoins();
 
+    @Insert
+    void addCoin(CoinCard coinCard);
 
+    @Insert
+    void addCoins(List<CoinCard> coinCard);
+
+    @Delete
+    void deleteCoin(CoinCard coinCard);
+
+    @Query("DELETE FROM CoinCard")
+    void deleteAllCoins();
 
     //Para la pantalla de busqueda la Card es mas concisa
     /*@Query("SELECT coin_name, coin_name_abbreviation, coin_symbol " +
@@ -37,23 +47,6 @@ public interface CoinDao {
 
 
     //Faltaria aqui para el chip 'Trending' del SearchFragment
-
-
-    @Insert
-    void addCoin(CoinCard coinCard);
-
-    @Insert
-    void addCoins(List<CoinCard> coinCard);
-
-    @Delete
-    void deleteCoin(CoinCard coinCard);
-
-    @Query("DELETE FROM CoinCard")
-    void deleteAllCoins();
-
-
-
-
 
 
 }
