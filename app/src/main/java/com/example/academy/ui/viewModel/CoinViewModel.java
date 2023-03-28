@@ -50,8 +50,8 @@ public class CoinViewModel extends AndroidViewModel {
 
     private void fetchCoinsFromApi() {
         CoinApiClient coinApiClient = CoinApiService.getClient();
-        //"chainlink", "cosmos", "monero"
-        List<String> coinIds = Arrays.asList("bitcoin", "ethereum", "ripple", "binance-coin", "cardano", "solana", "polkadot", "dogecoin", "avalanche", "shiba-inu", "chainlink", "litecoin", "algorand", "uniswap", "matic");
+        //"chainlink", "cosmos", "polkadot"
+        List<String> coinIds = Arrays.asList("bitcoin", "ethereum", "ripple", "binance-coin", "cardano", "solana", "monero", "dogecoin", "avalanche", "shiba-inu", "chainlink", "litecoin", "algorand", "uniswap", "matic");
         Call<CoinApiResponse> call = coinApiClient.getCoins();
 
         call.enqueue(new Callback<CoinApiResponse>() {
@@ -66,7 +66,6 @@ public class CoinViewModel extends AndroidViewModel {
                             .collect(Collectors.toList());
 
                     // Crear una lista de CoinCard de la lista filtrada
-                    List<CoinCard> coinCards = new ArrayList<>();
                     for (CoinApiResponse.CoinData coinData : filteredCoinDataList) {
                         CoinCard coinCard = new CoinCard(
                                 coinData.getName(),
@@ -101,6 +100,10 @@ public class CoinViewModel extends AndroidViewModel {
     public void deleteCoin(CoinCard coinCard) {
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> coinDao.deleteCoin(coinCard));
+
+        /*coinCards.remove(coinCard);
+        coinDao.deleteCoin(coinCard);
+        updateCoinsInDatabase(coinCards);*/
     }
 
 

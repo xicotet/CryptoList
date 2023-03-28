@@ -69,13 +69,19 @@ public class SearchFragment extends Fragment {
             @Override
             public void onChanged(List<CoinCard> coins) {
                 searchAdapter.setData(coins);
-
                 //coinViewModel.deleteCoin("bitcoin");
             }
         });
 
         coinViewModel.fetchCoins();
 
+        searchAdapter.setOnItemClickListener(new SearchAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                searchAdapter.setItemSelected(position);
+                //coinViewModel.deleteCoin(searchAdapter.cardInPosition(position));
+            }
+        });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,12 +93,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        searchAdapter.setOnItemClickListener(new SearchAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                searchAdapter.setItemSelected(position);
-            }
-        });
+
 
         return fragmentSearchBinding.getRoot();
     }

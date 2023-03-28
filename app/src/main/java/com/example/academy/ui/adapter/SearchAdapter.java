@@ -119,4 +119,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         notifyItemChanged(position);
     }
 
+    public CoinCard cardInPosition(int position){
+        return coins.get(position);
+    }
+
 }
