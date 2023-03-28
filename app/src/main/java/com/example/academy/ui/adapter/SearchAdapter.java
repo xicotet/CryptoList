@@ -13,7 +13,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.academy.R;
-import com.example.academy.data.model.AbbreviatedCoinCard;
 import com.example.academy.data.model.CoinCard;
 import com.squareup.picasso.Picasso;
 

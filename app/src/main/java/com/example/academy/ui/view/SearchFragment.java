@@ -51,8 +51,10 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentSearchBinding = FragmentSearchBinding.inflate(inflater, container, false);
-        SearchView searchView = fragmentSearchBinding.searchView;
-        searchView.requestFocus(); //Para que se abra el keyboard por defecto
+
+        //Para que se abra el keyboard por defecto
+        //SearchView searchView = fragmentSearchBinding.searchView;
+        //searchView.requestFocus();
 
         searchRecyclerView = fragmentSearchBinding.searchRecyclerView;
         searchRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
