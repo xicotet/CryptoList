@@ -15,10 +15,9 @@ Some extra features and functionalities, despite not being fully implemented her
 
 ## Contributing
 We welcome contributions to this project! Please follow these guidelines when contributing:
-- Fork the repository
-- Create a new branch for your changes
-- Make your changes and commit them with descriptive commit messages
-- Submit a pull request to the original repository
+- Fork the repository.
+- Create a new branch for your changes, make your changes and commit.
+- Submit a pull request to the original repository.
 
 ## Credits
 CoinCap logo in Main Fragment (Home screen) is present there only for design purposes and to attribute API authors where data is being fetched
