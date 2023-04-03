@@ -20,7 +20,7 @@ We welcome contributions to this project! Please follow these guidelines when co
 - Submit a pull request to the original repository.
 
 ## Credits
-CoinCap logo in Main Fragment (Home screen) is present there only for design purposes and to attribute API authors where data is being fetched
+CoinCap logo in Main Fragment (Home screen) is present there only for design purposes and to attribute API's author where data is being fetched
 > Also, thanks to the Android mentors at Rudo Apps* for their guidance and support during this project.
 
 ![Rudo Apps logo](rudo.png)
