@@ -1,8 +1,9 @@
 # CryptoList
+![Cryptocurrencias logo](cryptocurrencies.png)
 
 ## About
 
-![Cryptocurrencias logo](cryptocurrencies.png)
+
 
 This project was part of the initial step when joining [Rudo Apps*](https://rudo.es/) company. The main purpose was to assess the initial skills of the new programmers in Android's department (aka Academy in Rudo's jargon). 
 
