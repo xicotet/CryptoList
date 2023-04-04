@@ -24,6 +24,8 @@ We welcome contributions to this project! Please follow these guidelines when co
 
 ## Credits
 CoinCap logo in Main Fragment (Home screen) is present there only for design purposes and to attribute API's author (cryptocurrencies data is being fetched from their official website [CoinCap.io]( https://coincap.io/)).
+
+Image header of this README file (the picture of agrupped cryptocurrencies symbols) is created by [kosonicon](https://www.flaticon.com/free-icons/cryptocurrency).
 > Also, thanks to the Android mentors at [Rudo Apps*](https://es.linkedin.com/company/rudo) for their guidance and support during this project.
 
 ![Rudo Apps logo](rudo.png)
