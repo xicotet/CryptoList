@@ -14,7 +14,7 @@ Android mentors wanted to know whether internship students knew about how to con
 - Display retrieved cryptocurrencies data using **'RecyclerView'**.
 
 
-Some extra features and functionalities, despite not being fully implemented here, were desirable (i.e. being capable of favoriting and deleting coins, using some design architecture like MVVM, etc.)
+Some extra features and functionalities, despite not being fully implemented here, were desirable (e.g. being capable of adding to and removing coins from favorites, using some design architecture like MVVM, etc.).
 
 ## Contributing
 We welcome contributions to this project! Please follow these guidelines when contributing:
