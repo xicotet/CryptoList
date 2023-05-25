@@ -5,9 +5,9 @@
 
 
 
-This project was part of the initial step when joining [Rudo Apps*](https://rudo.es/) company. The main purpose was to assess the initial skills of the new programmers in Android's department (aka Academy in Rudo's jargon). 
+This project was part of the initial step when joining [Rudo Apps*](https://rudo.es/) company. The main purpose was to assess the initial skills of the new programmers in Android's department (aka 'Academy' in Rudo's jargon). 
+Android mentors wanted to know whether internship students knew about how to connect to an API using, for example, **'Retrofit'** library. They also asked us if we were able to display the retrieved cryptocurrency data in sort of a list, preferably using **'RecyclerView'**. We had 1 week to develop and present our solution to our fellows.
 
-Android mentors wanted to know whether internship students knew about how to connect to an API using, for example, **'Retrofit'** library. They also asked us if we were able to display the retrieved cryptocurrency data in sort of a list, preferably using **'RecyclerView'**.
 
 ## Features
 - Connect to an API using **'Retrofit'** library.
