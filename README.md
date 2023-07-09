@@ -22,7 +22,7 @@ We welcome contributions to this project! Please follow these guidelines when co
 - Create a new branch for your changes, make your changes and commit.
 - Submit a pull request to the original repository.
 
-## Screenshots and video
+## Screenshots
 | ![Home](Home.jpg) | ![Search](Search.jpg) |
 |:------------------------------------:|:-----------------------------:|
 | Home Screen                           | Search Screen                   |
