@@ -30,6 +30,8 @@ Image header of this README file (the picture of agrupped cryptocurrencies symbo
 
 ![Rudo Apps logo](rudo.png)
 ## Screenshots and video
-Pending
+| ![Home](home.png) | ![Search](search.jpg) |
+|:------------------------------------:|:-----------------------------:|
+| Home Screen                           | Search Screen                   |
 
 
