@@ -25,7 +25,7 @@ We welcome contributions to this project! Please follow these guidelines when co
 ## Screenshots
 | ![Home](Home.jpg) | ![Search](Search.jpg) |
 |:------------------------------------:|:-----------------------------:|
-| Home Screen                           | Search Screen                   |
+| Home Screen                           | Add/Search Screen                   |
 
 ## Credits
 CoinCap logo in Main Fragment (Home screen) is present there only for design purposes and to attribute API's author (cryptocurrencies data is being fetched from their official website [CoinCap.io]( https://coincap.io/)).
